@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<cars>
+    <car>
+        <vin>lti32t78</vin>
+        <make>Dodge</make>
+        <model>Viper</model>
+        <mfgDate>2015-10-11T00:00:00+03:00</mfgDate>
+        <bodyType>SEDAN</bodyType>
+    </car>
+</cars>
