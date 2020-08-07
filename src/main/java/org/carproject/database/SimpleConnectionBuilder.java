@@ -16,7 +16,7 @@ public class SimpleConnectionBuilder implements ConnectionBuilder{
     private static final String PASSWORD = "password";
     private static final String URL = "url";
     private static final String DRIVERNAME = "driverName";
-    private static final String PROPERTYFILE = "src/main/java/org/carproject/database/DBaccess.properties";
+    private static final String PROPERTYFILE = "src/main/resources/org/carproject/database/DBaccess.properties";
     public Connection getConnection() throws IOException, SQLException {
         properties.load(new FileInputStream(PROPERTYFILE));
         String userName = properties.getProperty(USERNAME);
@@ -38,10 +38,10 @@ public class SimpleConnectionBuilder implements ConnectionBuilder{
                 PreparedStatement preparedStatement = connection.prepareStatement(INSERT);
         ) {
 
-            preparedStatement.setString(1, "cheg4re");
+            preparedStatement.setString(1, "opopop777");
             preparedStatement.setString(2, "Renault");
             preparedStatement.setString(3, "Arcana");
-            preparedStatement.setDate(4, Date.valueOf(LocalDate.of(2020, 11,19)));
+            preparedStatement.setDate(4, Date.valueOf(LocalDate.of(2020, 07,22)));
             preparedStatement.setObject(5, BodyType.SUV, Types.OTHER);
 
             preparedStatement.executeUpdate();

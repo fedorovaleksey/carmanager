@@ -9,7 +9,7 @@ import java.util.Properties;
 public class ConnectionBuilderFactory {
     private static ConnectionBuilder connectionBuilder;
     private static Properties properties = new Properties();
-    private static final String PROPERTIES_FILE = "src/main/java/org/carproject/database/DBaccess.properties";
+    private static final String PROPERTIES_FILE = "src/main/resources/org/carproject/database/DBaccess.properties";
     private static final String CONNECTION_BUILDER = "connectionBuilder";
 
     public static ConnectionBuilder getConnectionBuilder() throws IOException, ClassNotFoundException, NoSuchMethodException {
