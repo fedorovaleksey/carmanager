@@ -2,11 +2,14 @@ package org.carproject.dao;
 
 import org.carproject.database.ConnectionBuilder;
 import org.carproject.database.ConnectionBuilderFactory;
+import org.carproject.entity.BodyType;
 import org.carproject.entity.Car;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.List;
 
 public class CarDBDAO implements CarDAO{
@@ -25,10 +28,19 @@ public class CarDBDAO implements CarDAO{
         }
     }
 
+    public static void main(String[] args) {
+
+    }
+
     @Override
     public void addCar(Car car) {
-        try {
-            Connection connection = connectionBuilder.getConnection();
+        try (Connection connection = connectionBuilder.getConnection();
+             PreparedStatement psmt = connection.prepareStatement(INSERT)) {
+            psmt.setString(1, car.getVin());
+            psmt.setString(2, car.getMake());
+            psmt.setString(3, car.getModel());
+            psmt.setDate(4, new java.sql.Date(car.getMfgDate().getTime()));
+            psmt.setObject(5, car.getBodyType(), Types.OTHER);
 
         } catch (IOException | SQLException e) {
             e.printStackTrace();
